@@ -10,8 +10,7 @@ set(BUILD_ENV_PATH "${BUILD_CONFIG_DIR}/env.hpp")
 set(ENV_PATH "${CMAKE_CURRENT_SOURCE_DIR}/config/env.hpp")
 
 add_executable(${PROJECT_NAME} src/main.cpp)
-
-
+add_subdirectory(src)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 17
@@ -27,3 +26,24 @@ configure_file (
 include_directories(${PROJECT_BINARY_DIR}/config)
 
  
+target_compile_options(${PROJECT_NAME} PUBLIC -Wall                   
+-Werror                
+-pedantic              
+-Wmissing-braces        
+-Wmissing-include-dirs  
+-Wnoexcept              
+-Wstrict-null-sentinel  
+-Wunused                
+-Wunused-parameter      
+-Wunused-result            
+-Wshadow              
+-Wconversion          
+-Wsign-conversion     
+-Wswitch-default      
+-Wuninitialized        
+-Wmaybe-uninitialized  
+-Winit-self            
+)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    visualslib)

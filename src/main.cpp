@@ -1,7 +1,7 @@
 #include <iostream> 
-#include "env.hpp"
-
+#include "map.hpp"
 
 int main(){
+     Map map;
      return 0;
 }
